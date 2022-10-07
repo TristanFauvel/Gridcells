@@ -1,9 +1,11 @@
-# Gridcell (Tristan Fauvel)
+# The emergence of grid cells
+Tristan Fauvel (2017)
 
-This program is a modified version of the model presented in Kropff, E. and Treves, A. (2008), The emergence of grid cells: Intelligent design or just adaptation?. Hippocampus, 
-Some parameters (b3, b4) come from Si, B., Kropff, E., & Treves, A. (2012). Grid alignment in entorhinal cortex. Biological Cybernetics, 106(8�9), 483�506. http://doi.org/10.1007/s00422-012-0513-7
+This program is an implementation of the model presented in Kropff E, Treves A. The emergence of grid cells: Intelligent design or just adaptation? Hippocampus. 2008;18(12):1256-69. doi: 10.1002/hipo.20520. PMID: 19021261.
+Si B, Kropff E, Treves A. Grid alignment in entorhinal cortex. Biol Cybern. 2012 Oct;106(8-9):483-506. doi: 10.1007/s00422-012-0513-7. Epub 2012 Aug 15. PMID: 22892761.
+This implementation is a computational neuroscience course project. Since some aspects of the original model are not presented in the paper (in particular the animal's trajectory generating process), these were.
 
-What are grid cells?
+## What are grid cells?
 A grid cell is a place-modulated neuron whose multiple firing locations define a periodic triangular array covering the entire available surface of an open two-dimensional environment. 
 Grid cells are thought to form an essential part of the brain�s coordinate system for metric navigation. 
 They have attracted attention because the crystal-like structure underlying their firing fields is not imported from the outside world, but created within the nervous system. Understanding the origin and properties of grid cells is an attractive challenge for anybody wanting to know how brain circuits compute. 
@@ -29,3 +31,7 @@ The network undergoes a competitive hebbian learning, with competition between i
 is a time delay between synaptic activation and activity rise of the neuron, as well as an activity decay after sustained activation.
 The model also include intra-mEC competition through activity mean and variance control. The values of the gain and the threshold in the neurons' transfer function are indeed updated at each time step to ensure 
 that the activity mean and its sparseness stay constant.
+
+
+## License
+This software is distributed under the MIT License. Please refer to the file LICENCE.txt included for details.

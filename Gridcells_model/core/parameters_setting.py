@@ -1,6 +1,6 @@
 import os
 import numpy as np
-def parameters_setting(model_path):
+def parameters_setting(model_path, query_inputs = False):
     """
     This script creates a file containing all necessary parameters for the programm to be launched.
     
@@ -8,25 +8,26 @@ def parameters_setting(model_path):
     os.chdir(model_path)
     parameters_file='parameters.npy'
     
-    number_of_sessions=input('Number of sets of parameters: ')
-    
+    if query_inputs: 
+        number_of_sessions=input('Number of sets of parameters: ')
+        param_set=input('Do you want to set the parameters Y: yes, N: no (keep default parameters):')
+    else:
+        number_of_sessions = ''
+        param_set= ''
+        
     if number_of_sessions == '' :
         number_of_sessions=1
     else : 
         number_of_sessions=eval(number_of_sessions)
-    param_set=input('Do you want to set the parameters Y: yes, N: no (keep default parameters):')
+        
     if param_set=='':
         param_set = 'N'
+        
     parameters=np.zeros((number_of_sessions, 13))
     if param_set=='N':
         for i in range(number_of_sessions):
-            n, NmEC, NI, b_1, b_3, b_4,mEC_max_firing_rate,s_0, epsilon, input_max_firing_rate, sigma_x, sigma_y, periodic = [1000, 1, 20, 0.1, 0.01, 0.1, 30, 0.03, 0.001, 1000, 3, 3, True]
-            #parameters= {'Number of time steps':param_set, 'Number of mEC neurons':NmEC, 'Number of input place units':NI,
-                         'Neuronal activation speed':b_1, 'Threshold update speed':b_3, 'Gain update speed':b_4, 'Sparseness':s_0,
-                         'Maximal firing rate of input place units':input_max_firing_rate, 'Hebbian learning speed':epsilon, 'Maximal firing rate of mEC neurons':mEC_max_firing_rate,
-                         'Standard deviation of each input neuron''s firing rate along the x axis':sigma_x, 'Standard deviation of each input neuron''s firing rate along the y axis':sigma_y, 'Periodicity':periodic}
-            
-            parameters[i,:]=np.array([[1000, 1, 20, 0.1, 0.01, 0.1, 30, 0.03, 0.001, 1000, 3, 3, True]])
+            n, NmEC, NI, b_1, b_3, b_4,mEC_max_firing_rate,s_0, epsilon, input_max_firing_rate, sigma_x, sigma_y, periodic = [10000, 10, 20, 0.1, 0.01, 0.1, 30, 0.03, 0.001, 1000, 3, 3, True]  
+            parameters[i,:]=np.array([ n, NmEC, NI, b_1, b_3, b_4,mEC_max_firing_rate,s_0, epsilon, input_max_firing_rate, sigma_x, sigma_y, periodic])
             #n, NmEC, NI, b_1, b_3, b_4,mEC_max_firing_rate, s_0, epsilon, r, max_firing_rate, sigma_x, sigma_y
         np.save(parameters_file, parameters)
     else:

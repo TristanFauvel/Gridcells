@@ -2,7 +2,7 @@ import numpy as np
 from math import floor 
 from random import randint, gauss
 from core import network
-
+from tqdm import tqdm
 def rat_trajectory(n, arena_size, periodic=True): 
     '''This function draws a random trajectory followed by a virtual rat in a 2D space.
     The rat begins at the center of the arena. New direction is randomly chosen following a normal law. 
@@ -24,7 +24,7 @@ def rat_trajectory(n, arena_size, periodic=True):
         Position of the rat for each time step.
     
     '''
-    speed=1
+    speed=1e-3
     trajectory=np.zeros((2,n))
     trajectory[:,0]=(floor(arena_size/2),floor(arena_size/2)) 
     i=1
@@ -69,7 +69,7 @@ def model(param_set, session):
     '''
     n, NmEC, NI, b_1, b_3, b_4,mEC_max_firing_rate,s_0, epsilon, input_max_firing_rate, sigma_x, sigma_y, periodic = param_set
     n, NmEC, NI = np.int(n), np.int(NmEC), np.int(NI)
-    b_2=b_1/3
+    b_2 = b_1/3
     a_0= 0.1*mEC_max_firing_rate #Mean of the mEC neurons firing rates
     threshold=0.01 
     gain=0.3
@@ -79,7 +79,8 @@ def model(param_set, session):
     R_inact_0=0
     trajectory=rat_trajectory(n, arena_size) 
     mEC_layer, input_layer= network(n, NI, arena_size, input_max_firing_rate, sigma_x, sigma_y,  trajectory, NmEC, R_act_0, R_inact_0, total_J, a_0, s_0, gain, threshold, mEC_max_firing_rate, session, periodic, b_1, b_2, b_3, b_4, epsilon)
-    for t in range(n):        
+    print('Computing neural dynamics...')
+    for t in tqdm(range(n)):        
         mEC_layer.layer_dynamics(t)
     return mEC_layer, trajectory, input_layer
 
