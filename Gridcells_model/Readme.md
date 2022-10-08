@@ -3,7 +3,7 @@ Tristan Fauvel (2017)
 
 This program is an implementation of the model presented in Kropff E, Treves A. The emergence of grid cells: Intelligent design or just adaptation? Hippocampus. 2008;18(12):1256-69. doi: 10.1002/hipo.20520. PMID: 19021261.
 Si B, Kropff E, Treves A. Grid alignment in entorhinal cortex. Biol Cybern. 2012 Oct;106(8-9):483-506. doi: 10.1007/s00422-012-0513-7. Epub 2012 Aug 15. PMID: 22892761.
-This implementation is a computational neuroscience course project. Since some aspects of the original model are not presented in the paper (in particular the animal's trajectory generating process), these were.
+This implementation is a computational neuroscience course project. Since some aspects of the original model are not presented in the paper (in particular the animal's trajectory generating process), these were implemented de novo.
 
 ## What are grid cells?
 A grid cell is a place-modulated neuron whose multiple firing locations define a periodic triangular array covering the entire available surface of an open two-dimensional environment. 
