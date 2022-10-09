@@ -1,50 +1,45 @@
 import numpy as np 
-from math import floor 
-from random import randint, gauss
 from core import network
 from tqdm import tqdm
-def rat_trajectory(n, arena_size, periodic=True): 
+from ratinabox.Environment import Environment
+from ratinabox.Agent import Agent
+
+def rat_trajectory(n, arena_size, periodic=False): 
     '''This function draws a random trajectory followed by a virtual rat in a 2D space.
-    The rat begins at the center of the arena. New direction is randomly chosen following a normal law. 
-    
     Parameters
     ----------
     n : integer
         number of time steps
-    speed : integer
-        The speed of the rat.
     arena_size : integer
-        Size of the arena in which the virtual rat moves.
-    periodic :boolean
-        If periodic == True, the arena is a torus, otherwise it is a closed arena.
-    
+        Size of the arena in which the virtual rat moves.   
     Returns
     -------
     trajectory: 2xn array
         Position of the rat for each time step.
-    
     '''
-    speed=1e-3
-    trajectory=np.zeros((2,n))
-    trajectory[:,0]=(floor(arena_size/2),floor(arena_size/2)) 
-    i=1
-    move_along_x=np.array([1,2,2,1,-1,-2,-2,-1])*speed
-    move_along_y=np.array([2,1,-1,-2,-2,-1,1,2])*speed
-    direction=randint(0,359) 
-    if periodic==True:
-        while i<n:
-            direction=floor(gauss(direction,10))%360 
-            position=trajectory[:,i-1]+(move_along_x[direction//45],move_along_y[direction//45])
-            trajectory[:,i]=position%arena_size
-            i=i+1 
-    else:
-        while i<n:
-            direction=floor(gauss(direction,10))%360 
-            position=trajectory[:,i-1]+(move_along_x[direction//45],move_along_y[direction//45])
-            if 0<=position[0]<=arena_size and 0<=position[1]<=arena_size:
-                trajectory[:,i]=position
-                i=i+1
-    return trajectory
+    
+    x0 = 0
+    y0 = 0
+    x1 = arena_size/100
+    y1 = arena_size/100
+    
+    Agent.speed_mean = 0.08 #m/s
+    Agent.speed_coherence_time = 0.7
+    Agent.rotation_velocity_std = 120 * np.pi/180 #radians 
+    Agent.rotational_velocity_coherence_time = 0.08
+
+    Env= Environment()
+    Env.add_wall([[x0,y0],[x1,y1]])
+
+    Ag = Agent(Env)
+
+    for _ in range(n):
+        Ag.update()
+    
+    trajectory = np.array(Ag.history['pos'])*100
+                
+    return trajectory.transpose()
+
 
 def model(param_set, session): 
     '''Compute the spatial firing rate map of mEC neurons.
