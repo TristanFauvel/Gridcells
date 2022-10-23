@@ -2,14 +2,14 @@ import os
 import numpy as np
 import matplotlib.pyplot as plt
 
-def session_statistics_saving(results_saving_path, param_set, trajectory, input_layer, mEC_layer):
+def session_statistics_saving(results_saving_path, param_set, Ag, input_layer, mEC_layer):
     '''Save the gridness score histogram, the trajectory and the parameters used for the session.
 
     Parameters
     ----------
     results_saving_path: string
         Folder in which the results will be saved
-    trajectory : array
+    Ag  :  
         Position of the rat for each time step.
     session: integer
         Index of the session
@@ -25,19 +25,25 @@ def session_statistics_saving(results_saving_path, param_set, trajectory, input_
         Maximal firing rate of mEC neurons. 
     '''    
     os.chdir(results_saving_path)
-    results= {'parameters':param_set, 'trajectory':trajectory}
+    results= {'parameters':param_set, 'trajectory':Ag}
     for key in results.keys():
         if  key=='parameters':
             fname = "Session_{session}_{key}".format(session=mEC_layer.session, key=key)
             np.save(fname, results[key])
         elif key=='trajectory':
-            fig = plt.figure()
+             
             fname = "Session_{session}_{key}".format(session=mEC_layer.session, key=key)
+            
+            fig = Ag.plot_trajectory()
+            """
+            fig = plt.figure()
             plt.scatter(trajectory[0,:],trajectory[1,:], c='k', s=10, marker='+')
             plt.xlim(0, mEC_layer.arena_size)
             plt.ylim(0, mEC_layer.arena_size)
-            plt.savefig("{fname}.png".format(fname=fname), bbox_inches='tight')
             plt.close(fig)
+            """
+            plt.savefig("{fname}.png".format(fname=fname), bbox_inches='tight')
+            plt.close()
         else:
             fname = "Session_{session}_{key}".format(session=mEC_layer.session, key=key)
             fig=plt.figure()

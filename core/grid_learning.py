@@ -37,8 +37,10 @@ def rat_trajectory(n, arena_size, periodic=False):
         Ag.update()
     
     trajectory = np.array(Ag.history['pos'])*100
-                
-    return trajectory.transpose()
+    
+    import matplotlib.pyplot as plt
+    plt.scatter(trajectory[0,:], trajectory[1,:])
+    return trajectory.transpose(), Ag
 
 
 def model(param_set, session): 
@@ -72,10 +74,10 @@ def model(param_set, session):
     total_J=1 
     R_act_0=0
     R_inact_0=0
-    trajectory=rat_trajectory(n, arena_size) 
+    trajectory, Ag=rat_trajectory(n, arena_size) 
     mEC_layer, input_layer= network(n, NI, arena_size, input_max_firing_rate, sigma_x, sigma_y,  trajectory, NmEC, R_act_0, R_inact_0, total_J, a_0, s_0, gain, threshold, mEC_max_firing_rate, session, periodic, b_1, b_2, b_3, b_4, epsilon)
     print('Computing neural dynamics...')
     for t in tqdm(range(n)):        
         mEC_layer.layer_dynamics(t)
-    return mEC_layer, trajectory, input_layer
+    return mEC_layer, Ag, input_layer
 

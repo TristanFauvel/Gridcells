@@ -27,6 +27,8 @@ def parameters_setting(model_path, query_inputs = False):
     if param_set=='N':
         for i in range(number_of_sessions):
             n, NmEC, NI, b_1, b_3, b_4,mEC_max_firing_rate,s_0, epsilon, input_max_firing_rate, sigma_x, sigma_y, periodic = [10000, 10, 20, 0.1, 0.01, 0.1, 30, 0.03, 0.001, 1000, 3, 3, True]  
+            n, NmEC, NI, b_1, b_3, b_4,mEC_max_firing_rate,s_0, epsilon, input_max_firing_rate, sigma_x, sigma_y, periodic = [100000, 10, 20, 0.1, 0.01, 0.1, 30, 0.03, 0.001, 1000, 3, 3, True]  
+            
             parameters[i,:]=np.array([ n, NmEC, NI, b_1, b_3, b_4,mEC_max_firing_rate,s_0, epsilon, input_max_firing_rate, sigma_x, sigma_y, periodic])
             #n, NmEC, NI, b_1, b_3, b_4,mEC_max_firing_rate, s_0, epsilon, r, max_firing_rate, sigma_x, sigma_y
         np.save(parameters_file, parameters)

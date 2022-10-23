@@ -88,7 +88,7 @@ class MEC_Neuron:
         plt.imshow(self.firing_rate_map)
         plt.savefig("{fname}.png".format(fname=fname), bbox_inches="tight")
         plt.close(fig)
-
+   
         fname = "Session_{session}_{neuron_index}_autocorrelogram".format(
             session=self.session, neuron_index=self.neuron_index
         )

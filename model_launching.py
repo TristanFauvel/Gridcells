@@ -5,30 +5,18 @@ from core import parameters_setting, run
 
 if __name__ == "__main__":
     abspath = os.path.abspath(__file__)
-    dname = os.path.dirname(abspath)
-    os.chdir(dname)
-    
-    query_inputs = False
-    if query_inputs:
-        model_path = input(
-            "Enter the path to the folder named Gridcells (press enter to choose the default path):"
-        )
-        if model_path == "":
-            model_path = dname
-    else:        
-         model_path = dname
-
-    os.chdir(model_path)
-    
+    dpath = os.path.dirname(abspath)
+    os.chdir(dpath)
+        
     path = os.getcwd()
     session_file = path + "/Results/session_index.npy"
 
-     
-    parameters_file = parameters_setting(model_path, query_inputs)
+    query_inputs= False
+    parameters_file = parameters_setting(dpath, query_inputs)
     
-    path = os.path.dirname(model_path)
+    #path = os.path.dirname(dpath)
    
-    run(parameters_file, session_file, path)
+    run(parameters_file, session_file, dpath)
 
 
 

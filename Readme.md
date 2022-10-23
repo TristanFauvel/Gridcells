@@ -14,7 +14,9 @@ This program implements a competitive hebbian learning process in a medial entho
 
 ## Instructions: 
 
-In order to run the model, you should run the script named 'model_lauching.py'.
+In order to run the model, you should run the script named 'model_lauching.py'. You can run the model directly within a Docker container: 
+1. Build the container image using `build_docker_image.sh`
+2. Run the model in a container : `run_in_container.sh`
 
 
 ## Output :
