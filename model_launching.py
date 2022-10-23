@@ -19,7 +19,9 @@ if __name__ == "__main__":
          model_path = dname
 
     os.chdir(model_path)
-    session_file = "session_index.npy"
+    
+    path = os.getcwd()
+    session_file = path + "/Results/session_index.npy"
 
      
     parameters_file = parameters_setting(model_path, query_inputs)

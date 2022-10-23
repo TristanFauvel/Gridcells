@@ -1,6 +1,5 @@
 matplotlib==3.5.2
 numpy==1.21.5
-ratinabox==0.1
 scikit_learn==1.1.2
 scipy==1.7.3
 tqdm==4.64.1

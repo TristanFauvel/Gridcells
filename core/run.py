@@ -25,12 +25,13 @@ def run(parameters_file, session_file, path):
         ]
         session = np.int(np.array(np.load(session_file) + 1))
         np.save(session_file, session)
+        
         results_saving_path = "{path}/Results/Session_{session}".format(
             path=path, session=session
         )
+        print("Results saving path : " + results_saving_path)
         pathlib.Path(results_saving_path).mkdir(parents=True, exist_ok=True)
         
-        print(results_saving_path)
         mEC_layer, trajectory, input_layer = grid_learning.model(param_set, session)
         mEC_layer.save_layer_plots(results_saving_path)
         results_saving.session_statistics_saving(
