@@ -1,0 +1,356 @@
+
+
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>core package &#8212; Grid cells v0.1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/bizstyle.css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="core" href="modules.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="modules.html" title="core"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Grid cells v0.1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" accesskey="U">core</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">core package</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="core-package">
+<h1>core package<a class="headerlink" href="#core-package" title="Permalink to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="module-core.grid_learning">
+<span id="core-grid-learning-module"></span><h2>core.grid_learning module<a class="headerlink" href="#module-core.grid_learning" title="Permalink to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="core.grid_learning.model">
+<span class="sig-prename descclassname"><span class="pre">core.grid_learning.</span></span><span class="sig-name descname"><span class="pre">model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">param_set</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">session</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.grid_learning.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the spatial firing rate map of mEC neurons.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>param_set</strong> (<em>list</em>) – param_set contains all the necessary parameters for the model to be run.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>mEC_layer</strong> (<em>MEC_Layer object</em>) – list of MEC_Neuron objects corresponding to the layer of mEC neurons.</p></li>
+<li><p><strong>arena_size</strong> (<em>integer</em>) – Size of the arena in which the virtual rat moves.</p></li>
+<li><p><strong>mEC_max_firing_rate</strong> (<em>float</em>) – Maximal firing rate of mEC neurons.</p></li>
+<li><p><strong>input_layer</strong> (<em>Input_Layer object.</em>) – list of Input_Neuron objects corresponding to the input layer.</p></li>
+<li><p><strong>trajectory</strong> (<em>2xn array</em>) – Position of the rat for each time step.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="core.grid_learning.rat_trajectory">
+<span class="sig-prename descclassname"><span class="pre">core.grid_learning.</span></span><span class="sig-name descname"><span class="pre">rat_trajectory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arena_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">periodic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.grid_learning.rat_trajectory" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function draws a random trajectory followed by a virtual rat in a 2D space.
+:param n: number of time steps
+:type n: integer
+:param arena_size: Size of the arena in which the virtual rat moves.
+:type arena_size: integer</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>trajectory</strong> – Position of the rat for each time step.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>2xn array</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-core.network_structure">
+<span id="core-network-structure-module"></span><h2>core.network_structure module<a class="headerlink" href="#module-core.network_structure" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="core.network_structure.Input_Layer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">core.network_structure.</span></span><span class="sig-name descname"><span class="pre">Input_Layer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NI</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arena_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_max_firing_rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma_y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trajectory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">session</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">periodic</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.network_structure.Input_Layer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="core.network_structure.Input_Layer.save_input_layer_map">
+<span class="sig-name descname"><span class="pre">save_input_layer_map</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.network_structure.Input_Layer.save_input_layer_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="core.network_structure.Input_Neuron">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">core.network_structure.</span></span><span class="sig-name descname"><span class="pre">Input_Neuron</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arena_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_max_firing_rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma_y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trajectory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">periodic</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.network_structure.Input_Neuron" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="core.network_structure.Input_Neuron.firing_rate">
+<span class="sig-name descname"><span class="pre">firing_rate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.network_structure.Input_Neuron.firing_rate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="core.network_structure.MEC_Layer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">core.network_structure.</span></span><span class="sig-name descname"><span class="pre">MEC_Layer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">R_act_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R_inact_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_layer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_J</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NmEC</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gain</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mEC_max_firing_rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arena_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b_3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b_4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">session</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epsilon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b_2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.network_structure.MEC_Layer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="core.network_structure.MEC_Layer.gridness_score_histogram">
+<span class="sig-name descname"><span class="pre">gridness_score_histogram</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.network_structure.MEC_Layer.gridness_score_histogram" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.network_structure.MEC_Layer.layer_dynamics">
+<span class="sig-name descname"><span class="pre">layer_dynamics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.network_structure.MEC_Layer.layer_dynamics" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.network_structure.MEC_Layer.save_gridness_histogram">
+<span class="sig-name descname"><span class="pre">save_gridness_histogram</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.network_structure.MEC_Layer.save_gridness_histogram" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.network_structure.MEC_Layer.save_layer_plots">
+<span class="sig-name descname"><span class="pre">save_layer_plots</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results_saving_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.network_structure.MEC_Layer.save_layer_plots" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="core.network_structure.MEC_Neuron">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">core.network_structure.</span></span><span class="sig-name descname"><span class="pre">MEC_Neuron</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">R_act_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R_inact_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">J_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neuron_index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_layer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arena_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">session</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epsilon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b_2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.network_structure.MEC_Neuron" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py property">
+<dt class="sig sig-object py" id="core.network_structure.MEC_Neuron.autocorrelogram">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">autocorrelogram</span></span><a class="headerlink" href="#core.network_structure.MEC_Neuron.autocorrelogram" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="core.network_structure.MEC_Neuron.firing_rate_map">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">firing_rate_map</span></span><a class="headerlink" href="#core.network_structure.MEC_Neuron.firing_rate_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.network_structure.MEC_Neuron.firing_rate_mean">
+<span class="sig-name descname"><span class="pre">firing_rate_mean</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">total_synaptic_activation</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.network_structure.MEC_Neuron.firing_rate_mean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.network_structure.MEC_Neuron.gridness_score">
+<span class="sig-name descname"><span class="pre">gridness_score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">corr_cutRmin</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.network_structure.MEC_Neuron.gridness_score" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.network_structure.MEC_Neuron.hebbian_learning">
+<span class="sig-name descname"><span class="pre">hebbian_learning</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.network_structure.MEC_Neuron.hebbian_learning" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.network_structure.MEC_Neuron.neuron_dynamics">
+<span class="sig-name descname"><span class="pre">neuron_dynamics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.network_structure.MEC_Neuron.neuron_dynamics" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.network_structure.MEC_Neuron.save_plots">
+<span class="sig-name descname"><span class="pre">save_plots</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results_saving_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.network_structure.MEC_Neuron.save_plots" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.network_structure.MEC_Neuron.transfer_function">
+<span class="sig-name descname"><span class="pre">transfer_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">total_synaptic_activation</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.network_structure.MEC_Neuron.transfer_function" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="core.network_structure.network">
+<span class="sig-prename descclassname"><span class="pre">core.network_structure.</span></span><span class="sig-name descname"><span class="pre">network</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NI</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arena_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_max_firing_rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma_y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trajectory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NmEC</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R_act_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R_inact_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_J</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gain</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mEC_max_firing_rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">session</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">periodic</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b_2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b_3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b_4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epsilon</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.network_structure.network" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the spatial firing rate map of mEC neurons.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>NI</strong> (<em>integer</em>) – Number of input neurons.</p></li>
+<li><p><strong>NmEC</strong> (<em>integer</em>) – Number of mEC neurons.</p></li>
+<li><p><strong>n</strong> (<em>integer</em>) – number of time steps</p></li>
+<li><p><strong>trajectory</strong> (<em>2xn array</em>) – Position of the rat for each time step.</p></li>
+<li><p><strong>sigma_x</strong> (<em>float</em>) – Standard deviation of each input neuron’s firing rate along the x axis</p></li>
+<li><p><strong>sigma_y</strong> (<em>float</em>) – Standard deviation of each input neuron’s firing rate along the y axis</p></li>
+<li><p><strong>total_J</strong> (<em>float</em>) – Sum of a mEC neuron input synaptic weights.</p></li>
+<li><p><strong>arena_size</strong> (<em>integer</em>) – Size of the arena in which the virtual rat moves.</p></li>
+<li><p><strong>mEC_max_firing_rate</strong> (<em>float</em>) – Maximal firing rate of input place units.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>mEC_layer</strong> (<em>MEC_Layer object</em>) – list of mEC_neurons objects corresponding to the layer of mEC neurons.</p></li>
+<li><p><strong>input_layer</strong> (<em>Input_Layer object</em>) – list of Input_Neuron objects corresponding to the input layer.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-core.parameters_setting">
+<span id="core-parameters-setting-module"></span><h2>core.parameters_setting module<a class="headerlink" href="#module-core.parameters_setting" title="Permalink to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="core.parameters_setting.parameters_setting">
+<span class="sig-prename descclassname"><span class="pre">core.parameters_setting.</span></span><span class="sig-name descname"><span class="pre">parameters_setting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">query_inputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.parameters_setting.parameters_setting" title="Permalink to this definition">¶</a></dt>
+<dd><p>This script creates a file containing all necessary parameters for the programm to be launched.</p>
+</dd></dl>
+
+</section>
+<section id="module-core.results_saving">
+<span id="core-results-saving-module"></span><h2>core.results_saving module<a class="headerlink" href="#module-core.results_saving" title="Permalink to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="core.results_saving.session_statistics_saving">
+<span class="sig-prename descclassname"><span class="pre">core.results_saving.</span></span><span class="sig-name descname"><span class="pre">session_statistics_saving</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results_saving_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param_set</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_layer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mEC_layer</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.results_saving.session_statistics_saving" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save the gridness score histogram, the trajectory and the parameters used for the session.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>results_saving_path</strong> (<em>string</em>) – Folder in which the results will be saved</p></li>
+<li><p><strong>Ag</strong> – Position of the rat for each time step.</p></li>
+<li><p><strong>session</strong> (<em>integer</em>) – Index of the session</p></li>
+<li><p><strong>param_set</strong> – Set of parameters used for the session</p></li>
+<li><p><strong>mEC_layer</strong> (<em>MEC_Layer object</em>) – list of mEC_neurons objects corresponding to the layer of mEC neurons.</p></li>
+<li><p><strong>input_layer</strong> (<em>Input_Layer object</em>) – list of Input_Neuron objects corresponding to the input layer.</p></li>
+<li><p><strong>arena_size</strong> (<em>integer</em>) – Size of the arena in which the virtual rat moves.</p></li>
+<li><p><strong>mEC_max_firing_rate</strong> (<em>float</em>) – Maximal firing rate of mEC neurons.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-core.run">
+<span id="core-run-module"></span><h2>core.run module<a class="headerlink" href="#module-core.run" title="Permalink to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="core.run.run">
+<span class="sig-prename descclassname"><span class="pre">core.run.</span></span><span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">session_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.run.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>parameters_file</strong> (<em>str</em>) – Name of the .npy file containing the model’s parameters.</p></li>
+<li><p><strong>session_file</strong> (<em>str</em>) – Name of the .npy file containing the model’s parameters.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>Returns a folder for each parameters set. Each folder contains plots</em></p></li>
+<li><p><em>representing mEC neurons firing rate maps, autocorrelogramms, gridness score histogram, trajectory scatter plot.</em></p></li>
+<li><p><em>It also contains a file with parameter values used for each session..</em></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-core">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-core" title="Permalink to this heading">¶</a></h2>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">core package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-core.grid_learning">core.grid_learning module</a></li>
+<li><a class="reference internal" href="#module-core.network_structure">core.network_structure module</a></li>
+<li><a class="reference internal" href="#module-core.parameters_setting">core.parameters_setting module</a></li>
+<li><a class="reference internal" href="#module-core.results_saving">core.results_saving module</a></li>
+<li><a class="reference internal" href="#module-core.run">core.run module</a></li>
+<li><a class="reference internal" href="#module-core">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="modules.html"
+                          title="previous chapter">core</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/core.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="modules.html" title="core"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Grid cells v0.1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" >core</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">core package</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Tristan Fauvel.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.0.2.
+    </div>
+  </body>
+</html>
